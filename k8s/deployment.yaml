@@ -1,0 +1,23 @@
+# deployment.yaml file:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: editable-resume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: editable-resume
+  template:
+    metadata:
+      labels:
+        app: editable-resume
+    spec:
+      containers:
+      - name: editable-resume
+        image: editable-portfolio-resume:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+
